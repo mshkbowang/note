@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.note.Dao.UserDao">
+<!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+    <resultMap id="User" type="com.note.Model.User">
+   <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="CHAR" />
+    <result column="password" property="password" jdbcType="CHAR" />
+    <result column="wName" property="wName" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="CHAR" />
+    <result column="tel" property="tel" jdbcType="CHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+</resultMap>
+
+    <!--查询账号-->
+    <select id="Login" parameterType="String" resultType="User">
+        SELECT * FROM user WHERE 1=1 and username = #{username} and password=#{password}
+    </select>
+
+    <!-- 注册用户 -->
+    <insert id="Register" >
+      INSERT INTO `USER`(username,password,wName,address,tel,`level`) VALUES( #{username},#{password},#{wName},#{address},#{tel},2)
+    </insert>
+
+    <!--根据userId查询用户信息-->
+    <select id="selectUserByUserId" parameterType="com.note.Model.User" resultMap="User">
+        SELECT * FROM  user where userId=#{userId}
+    </select>
+
+    <!--根据userId查询order信息-->
+    <select id="getOrderInfo" parameterType="com.note.Model.User" resultMap="User">
+        select address,tel from user where userId=#{userId}
+    </select>
+
+    <!--&lt;!&ndash; 更新用户信息 &ndash;&gt;-->
+    <!--<update id="updateUserByUsername" parameterType="com.note.Model.User">-->
+    	<!--UPDATE user SET password = #{password} WHERE username = #{username}-->
+    <!--</update>-->
+</mapper>
+
+

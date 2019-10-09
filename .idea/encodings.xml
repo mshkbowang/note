@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Controller/DoctorController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Dao/OrderDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Model/Doctor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Service/impl/DeptServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/Service/impl/DoctorServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/note/interceptor/LoginInterceptor.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
