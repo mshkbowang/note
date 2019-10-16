@@ -28,7 +28,7 @@ public class OrderController {
 	@RequestMapping("addOrder.do")
 	@ResponseBody
 	public String addOrder(@RequestBody Order order) {
-		System.out.println(order);
+	//	System.out.println(order);
 		order.setWStatus(1);
 		String result = "";
 		try{
@@ -60,7 +60,7 @@ public class OrderController {
     @RequestMapping("getOrderListByUserId.do")
     @ResponseBody
     public List<Order> getOrderListByUserId(Integer userId) {
-		System.out.println(userId);
+		//System.out.println(userId);
 		List<Order> result=null;
 		try{
         List<Order> orders=orderService.getOrderByUserId(userId);
@@ -97,7 +97,7 @@ public class OrderController {
                order.setTel(user.getTel());
             }
         for(Order o:orders){
-            System.out.println(o);
+            //System.out.println(o);
         }
 
         return orders;

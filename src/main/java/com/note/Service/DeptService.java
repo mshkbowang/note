@@ -20,8 +20,9 @@ public interface DeptService {
 
     //根据deptId获取科室详细信息
     Dept getDeptById(Integer deptId);
+
     //更新科室信息
-    int updateDept(Dept dept);
+    int  updateDept(Dept dept);
     //
     int updateDeptStatus(Dept dept);
 

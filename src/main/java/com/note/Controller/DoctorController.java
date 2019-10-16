@@ -28,7 +28,7 @@ public class DoctorController {
     @RequestMapping("addDoc.do")
     @ResponseBody
     public String add(Doctor doctor) {
-        System.out.println(doctor);
+       // System.out.println(doctor);
         String result = "";
         Doctor doc1 = null;
         try {
@@ -45,7 +45,7 @@ public class DoctorController {
                 doctor.setStatus("1");
                 docService.AddDoctor(doctor);
                 int pid = doctor.getDoctorId();
-                System.out.println(pid);
+                //System.out.println(pid);
                 result = "success";
             }
         }
@@ -87,7 +87,7 @@ public class DoctorController {
     @RequestMapping("getDocById.do")
 	@ResponseBody
 	public Doctor getDeptById(Integer doctorId) {
-        System.out.println("**************"+doctorId);
+       // System.out.println("**************"+doctorId);
 		Doctor doc = null;
         try{
             Doctor doc1=docService.getDoctorById(doctorId);
@@ -103,7 +103,7 @@ public class DoctorController {
 	@RequestMapping("updateDoc.do")
 	@ResponseBody
 	public String updateDoc(Doctor doc) {
-        System.out.println(doc);
+        //System.out.println(doc);
 		String result = "";
 		try{
 		    //返回一个boolean值
@@ -121,7 +121,7 @@ public class DoctorController {
     @RequestMapping("updateDocWorkStatus.do")
     @ResponseBody
     public String updateDocStatus(Doctor doc) {
-        System.out.println(doc);
+      //  System.out.println(doc);
         int w=doc.getWorkStatus();
        // System.out.println(w);
         String result = "";
@@ -146,7 +146,7 @@ public class DoctorController {
     @RequestMapping("deleteDoctorInfo.do")
     @ResponseBody
     public String deleteDoctorInfo(Doctor doc) {
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$"+doc);
+      //  System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$"+doc);
 
         String result = "";
         try {
@@ -171,7 +171,7 @@ public class DoctorController {
 			}
 		}catch(Exception e) {
 		}
-		System.out.println(doctList);
+		//System.out.println(doctList);
 		return doctList;
 	}
 

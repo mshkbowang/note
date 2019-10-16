@@ -10,6 +10,7 @@
         <result column="status" property="status" jdbcType="CHAR"/>
         <result column="deptArea" property="deptArea" jdbcType="CHAR" />
     </resultMap>
+
     <!-- 获取所有科室数据 -->
     <select id="getAllDeptInfo" parameterType="String" resultMap="Dept">
         SELECT * FROM dept WHERE status =#{status}
@@ -41,6 +42,11 @@
     <delete id="deleteDeptById" parameterType="com.note.Model.Dept" timeout="20" >
         delete from dept where deptId=#{deptId}
     </delete>
+
+    <!--更新科室的详细信息-->
+    <update id="updateDept" parameterType="com.note.Model.Dept" timeout="20">
+        update dept SET  deptName=#{deptName},deptArea=#{deptArea},deptDes=#{deptDes} where deptId=#{deptId}
+    </update>
     <!--&lt;!&ndash; 更新 &ndash;&gt;-->
     <!--<update id="updateDept"  parameterType="com.note.Model.Department">-->
          <!--UPDATE department SET departmentName=#{departmentName},departmentDes=#{departmentDes},departmentArea=#{departmentArea} where departmentId=#{departmentId}-->

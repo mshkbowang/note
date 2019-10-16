@@ -39,8 +39,9 @@ public class DeptServiceImpl implements DeptService {
         return deptDao.getDeptById(deptId);
     }
 
+    //更新科室信息
     public int updateDept(Dept dept) {
-        return 0;
+        return deptDao.updateDept(dept);
     }
 
     public int updateDeptStatus(Dept dept) {

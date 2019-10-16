@@ -177,5 +177,15 @@ public class userDaoTest extends BaseTest {
         User user=userDao.getOrderInfo(2);
         System.out.println(user);
     }
+    @Test
+    public void testShow18(){
+        Dept dept=new Dept();
+        dept.setDeptId(15);
+        dept.setDeptName("liuwu");
+        dept.setDeptArea("酒客12");
+        dept.setDeptDes("很不错");
+        int d=deptDao.updateDept(dept);
+        System.out.println(d);
+    }
 
 }

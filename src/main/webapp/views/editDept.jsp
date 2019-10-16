@@ -71,14 +71,14 @@
     <script src="../static/js/plugins/iCheck/icheck.min.js"></script>
     <script src="../static/layer/layer.js"></script>
     <script>
-	    function getDeptById(id){
+	    function getDeptById(deptId){
 	    	$.ajax({
         		url: '../getDeptById.do',
         		type: 'POST',
-        		data: {'deptId':id},
+        		data: {'deptId':deptId},
         		dataType: 'JSON',
         		success: function(dep){
-        			$('#deptId').val(dep.departmentId);
+        			$('#deptId').val(dep.deptId);
         			$('#deptName').val(dep.deptName);
                 	$('#deptArea').val(dep.deptArea);
                 	$('#deptDes').val(dep.deptDes);
@@ -100,7 +100,10 @@
         	$.ajax({
         		url: '../updateDept.do',
         		type: 'POST',
-        		data: {'departmentId':deptId,'departmentName':deptName,'departmentDes':deptDes,'departmentArea':deptArea},
+        		data: {'deptId':deptId,
+                    'deptName':deptName,
+                    'deptDes':deptDes,
+                    'deptArea':deptArea},
         		dataType: 'JSON',
         		success: function(result){
         			var frameIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
@@ -108,7 +111,7 @@
         			if(result=="success"){
         				layer.alert('更新成功',function(index){
         					layer.close(index);
-        					parent.reload();
+        					parent.reload();0
         					parent.layer.close(frameIndex);
         					
         				});

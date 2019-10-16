@@ -78,42 +78,92 @@
     <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function () {
-        	$.ajax({
-        		url: '../getRegList.do',
-        		type: 'POST',
-        		dataType: 'JSON',
-        		success: function(res){
-        			var data = res;
-        			//然后 DataTables 这样初始化：
-                    $('.dataTables-example').DataTable( {
-                        data: data,
-                        columns: [
-                            { data: 'orderId' },
-                            { data: 'wName' },
-                            { data: 'address' },
-                            { data: 'tel'},
-                            { data: 'doctorName' },
-                            { data: 'deptName' },
-                            { data: 'wStatus',render:function(data,type,row){
+            //获取医生相关信息
+        $.ajax({
+            url: '../getAllOrderList.do',
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (doctList) {
+                $('#doctor').html(doctList.length);
+                for (var i = 0; i < doctList.length; i++) {
+                    $('#doctorList').append("<li><span class='docLi' onclick='showDoctor(" + doctList[i].doctorId + ")'>" + doctList[i].doctorName + "</span></li>");
+                }
+                $('.dataTables-example').DataTable({
+                    data: doctList,
+                    columns: [
+                        {data: 'orderId'},
+                        {data: 'wName'},
+                        {data: 'address'},
+                        {data: 'tel'},
+                        {data: 'deptName'},
+                        {data: 'doctorName'},
+
+                        { data: 'wStatus',render:function(data,type,row){
                                 if(data == 1){
                                     return "<button class='btn btn-success'>正常</a>";
                                 }else{
                                     return "<button class='btn btn-danger'>取消</a>";
                                 }
-                        	} },
-                            { data: 'registerTime' },
-                            { data: 'createTime'}
-                        ]
-                    } );
-        		},
-        		error: function(res){
-        			layer.msg('加载失败');
-        		}
-        	});
+                            } },
+                        {
+                            data: function (obj) {
+                                return getTime(obj.registerTime);
+                            }
+                        },
+                        {
+                            data: function (obj) {
+                                return getTime(obj.createTime);
+                            }
+                        }
+                    ]
+                })
+                ;
+                return;
+            },
+            error: function (docList) {
+                layer.msg('加载失败');
+            }
+        });
+        //获取科室相关信息
+        $.ajax({
+            url: '../getDeptList.do',
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (deptList) {
+                $('#category').html(deptList.length);
+            },
+            error: function (deptList) {
+                layer.msg('加载失败');
+            }
+        });
         });
         //重新加载
-        function reload(){
-        	window.location.reload();
+        function reload() {
+            window.location.reload();
+        }
+
+        function getTime(time) {
+            if (typeof (time) == "undefined") {
+                return "";
+            }
+            var oDate = new Date(time),
+                oYear = oDate.getFullYear(),
+                oMonth = oDate.getMonth() + 1,
+                oDay = oDate.getDate(),
+                oHour = oDate.getHours(),
+                oMin = oDate.getMinutes(),
+                oSen = oDate.getSeconds(),
+                oTime = oYear + '-' + getzf(oMonth) + '-' + getzf(oDay) + '-' + ' ' + getzf(oHour) + ':' + getzf(oMin) + ':' + getzf(oSen)
+            ;
+            return oTime;
+        }
+
+        //补0操作,当时间数据小于10的时候，给该数据前面加一个0
+        function getzf(num) {
+            if (parseInt(num) < 10) {
+                num = '0' + num;
+            }
+            return num;
         }
     </script>
 </body>

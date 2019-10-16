@@ -40,7 +40,7 @@ public class UserController {
 	@RequestMapping("/addReg.do")
 	@ResponseBody
 	public String addRegister(User user,HttpSession session) {
-		System.out.println("@#@#@############"+user);
+		//System.out.println("@#@#@############"+user);
 		String result = "";
 		if(user!=null){
 			userService.Register(user);

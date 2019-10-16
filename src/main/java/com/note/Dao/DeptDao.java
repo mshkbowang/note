@@ -24,7 +24,7 @@ public interface DeptDao {
     //根据deptId查询科室详细信息
     Dept getDeptById(Integer deptId);
 
-    int updateDept(Dept dept);
+    int  updateDept(Dept dept);
 
     int updateDeptStatus(Dept dept);
 
