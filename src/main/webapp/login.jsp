@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
@@ -28,9 +27,10 @@
 
     <div class="middle-box text-center loginscreen  animated fadeInDown">
         <div>
-            <%--<div>--%>
-                <%--<h1 class="logo-name"></h1>--%>
-            <%--</div>--%>
+            <div>
+                <h1 class="logo-name">C+</h1>
+                <%--<img src="../static/images/logo.png">--%>
+            </div>
             <h3>欢迎使用XX 医院【挂号】系统</h3>
             <form class="m-t" role="form" action="index.html">
                 <div class="form-group">
