@@ -27,7 +27,12 @@ public class DoctorServiceImpl implements DoctorService{
 		 return docDao.getAllDoctorInfo(doctor);
 	 }
 
-	 //获取所有医生信息
+	 //获取医生的详细信息
+	public List<Doctor> getAllDoctorInfoDetail(Doctor doctor) {
+		return docDao.getAllDoctorInfoDetail(doctor);
+	}
+
+	//获取所有医生信息
 	 public List<Doctor> getAllDoctorInfo1(Doctor doctor){
 	 	return docDao.getAllDoctorInfo1(doctor);
 	 }

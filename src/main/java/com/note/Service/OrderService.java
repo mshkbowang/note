@@ -5,8 +5,10 @@ import com.note.Model.Order;
 
 import java.util.List;
 public interface OrderService {
+
     //新增订单记录
     void addOrder(Order order);
+
     //获取所有预约信息
     List<Order> getAllOrder();
     //更新预约状态

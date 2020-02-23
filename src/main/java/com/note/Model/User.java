@@ -2,8 +2,8 @@ package com.note.Model;
 
 
 public class User {
-	private Integer userId;
-	private String username;
+	private Integer userId;//用户id
+	private String username;//用户名
     private String password;
     private String wName;
     private String address;

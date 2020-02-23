@@ -28,6 +28,12 @@
         SELECT * FROM  user where userId=#{userId}
     </select>
 
+    <!--根据userName查询用户信息-->
+    <select id="selectUserByUserName" parameterType="com.note.Model.User" resultMap="User">
+        SELECT * FROM  user where username=#{username}
+    </select>
+
+
     <!--根据userId查询order信息-->
     <select id="getOrderInfo" parameterType="com.note.Model.User" resultMap="User">
         select address,tel from user where userId=#{userId}

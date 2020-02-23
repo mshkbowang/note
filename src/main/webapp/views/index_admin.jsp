@@ -2,14 +2,10 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title> - 主页示例</title>
 
     <link rel="shortcut icon" href="favicon.ico">
     <link href="../static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
@@ -63,6 +59,8 @@
                                     <th>挂号单状态</th>
                                     <th>预约时间</th>
                                     <th>挂号时间</th>
+                                    <th>订单状态</th>
+                                    <%--<th>操作</th>--%>
                                 </tr>
 
                                 </thead>
@@ -136,9 +134,21 @@
                     {
                         data: function (obj) {
                             return getTime(obj.createTime);
-                        }
-                    }
-            ]
+                        }}
+                    // },
+                    //     {
+                    //         data: 'workStatus', render: function (data, type, row) {
+                    //
+                    //             if (data == 1) {
+                    //                 return "<button class='btn btn-success'>处理</a>";
+                    //             } else {
+                    //                 return "<button class='btn btn-info'>未处理</a>";
+                    //             }
+                    //         }, width: "10%"
+                    //     }
+
+
+                    ]
             })
                 ;
                 return;

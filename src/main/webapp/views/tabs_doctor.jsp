@@ -36,10 +36,10 @@
             <div class="ibox">
                 <div class="ibox-title">
                     <h5>科室医生列表</h5>
+                    <h5>我是主页</h5>
                 </div>
                 <div class="ibox-content">
                     <div class="row" id="doctors">
-
                     </div>
                 </div>
             </div>
@@ -107,48 +107,48 @@
         });
     }
 
-    function getDoctorById(id) {
-        $.ajax({
-            url: '../getDocById.do',
-            type: 'POST',
-            data: {'doctorId': id},
-            dataType: 'JSON',
-            success: function (res) {
-                doctorDatas = res;
-                var status = res.workStatus == 1 ? "正常" : "请假";
-                $("#doctors").append(
-                    "<div class='col-sm-4'>" +
-                    "<div class='panel panel-success'>" +
-                    "<div class='panel-heading'>" + res.doctorName + " 相关信息</div>" +
-                    "<div class='panel-body'>" +"<input value='"+res.doctorId+"' type='hidden' id='doctorId'> "+
-                    "<p>医生姓名: " + res.doctorName + "</p>" +
-                    "<p class='des'>医生简介: " + res.doctorDes + "</p>" +
-                    "<p>所属科室: " + res.deptName + "</p>" +
-                    "<p>出诊时间: " + res.workTime + "</p>" +
-                    "<p style='color:red'>当前工作状态: " + status + "</p>" +
-
-                    "<div class='form-group'>" +
-                    "<label class='col-sm-2 control-label' style='padding:0px'>挂号时间：</label>" +
-                    "<div class='col-sm-10'>" +
-                    "<input id='time' class='laydate-icon form-control layer-date'>" +
-                    "</div>" +
-                    "</div>" +
-                    "<button class='btn btn-info' onclick='register(-1)'>挂号</button>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>"
-                );
-                laydate.render({
-                    elem: '#time' + i //指定元素
-                });
-
-
-            },
-            error: function (res) {
-                layer.msg('加载失败');
-            }
-        });
-    }
+    // function getDoctorById(id) {
+    //     $.ajax({
+    //         url: '../getDocById.do',
+    //         type: 'POST',
+    //         data: {'doctorId': id},
+    //         dataType: 'JSON',
+    //         success: function (res) {
+    //             doctorDatas = res;
+    //             var status = res.workStatus == 1 ? "正常" : "请假";
+    //             $("#doctors").append(
+    //                 "<div class='col-sm-4'>" +
+    //                 "<div class='panel panel-success'>" +
+    //                 "<div class='panel-heading'>" + res.doctorName + " 相关信息</div>" +
+    //                 "<div class='panel-body'>" +"<input value='"+res.doctorId+"' type='hidden' id='doctorId'> "+
+    //                 "<p>医生姓名: " + res.doctorName + "</p>" +
+    //                 "<p class='des'>医生简介: " + res.doctorDes + "</p>" +
+    //                 "<p>所属科室: " + res.deptName + "</p>" +
+    //                 "<p>出诊时间: " + res.workTime + "</p>" +
+    //                 "<p style='color:red'>当前工作状态: " + status + "</p>" +
+    //
+    //                 "<div class='form-group'>" +
+    //                 "<label class='col-sm-2 control-label' style='padding:0px'>挂号时间：</label>" +
+    //                 "<div class='col-sm-10'>" +
+    //                 "<input id='time' class='laydate-icon form-control layer-date'>" +
+    //                 "</div>" +
+    //                 "</div>" +
+    //                 "<button class='btn btn-info' onclick='register(-1)'>挂号</button>" +
+    //                 "</div>" +
+    //                 "</div>" +
+    //                 "</div>"
+    //             );
+    //             laydate.render({
+    //                 elem: '#time' + i //指定元素
+    //             });
+    //
+    //
+    //         },
+    //         error: function (res) {
+    //             layer.msg('加载失败');
+    //         }
+    //     });
+    // }
 
     function register(index) {
       //  console.log(index+"^^^^^^^^^^^^^^^^^^^^^66")

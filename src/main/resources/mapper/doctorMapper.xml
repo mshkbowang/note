@@ -11,13 +11,17 @@
         <result column="workStatus" property="workStatus" jdbcType="INTEGER" />
         <result column="doctorDes" property="doctorDes" jdbcType="CHAR" />
         <result column="status" property="status" jdbcType="CHAR"/>
-        <!--<result column="deptName" property="deptName" jdbcType="CHAR"/>-->
+        <result column="deptName" property="deptName" jdbcType="CHAR"/>
 
         
     </resultMap>
     <!--&lt;!&ndash;获取所有医生的数据&ndash;&gt;-->
     <select id="getAllDoctorInfo" parameterType="String" resultMap="Doctor">
-        SELECT * FROM doctor
+        SELECT * FROM
+    </select>
+
+    <select id="getAllDoctorInfoDetail" parameterType="String" resultMap="Doctor">
+        SELECT doctorName,deptName,workTime,workStatus,doctorDes FROM doctor,dept WHERE doctor.deptId=dept.deptId
     </select>
     <!--&lt;!&ndash;查询所有拥有科室的医生信息&ndash;&gt;-->
     <select id="getAllDoctorInfo1" parameterType="com.note.Model.Doctor" resultMap="Doctor">

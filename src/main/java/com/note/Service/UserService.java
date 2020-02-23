@@ -12,6 +12,9 @@ public interface UserService {
 
 	//通过用户userId查询
 	User selectUserByUserId(Integer userId);
+
+	//根据username查询用户信息
+	User selectUserByUserName(String username);
 	
 	int AddUser(User user);
 	

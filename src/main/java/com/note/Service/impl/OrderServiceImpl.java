@@ -12,7 +12,8 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDao orderDao;
-    //新增订单记录
+
+    //添加订单记录
     public void addOrder(Order order) {
       orderDao.addOrder(order);
     }

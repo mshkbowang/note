@@ -7,14 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * µÇÂ¼ÈÏÖ¤µÄÀ¹½ØÆ÷
- */
+
 public class LoginInterceptor implements HandlerInterceptor{
 
  
 	/**
-	 * HandlerÖ´ÐÐÍê³ÉÖ®ºóµ÷ÓÃÕâ¸ö·½·¨
+	 * HandlerÖ´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exc)
@@ -24,7 +22,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 
 
 	/**
-	 * HandlerÖ´ÐÐÖ®ºó£¬ModelAndView·µ»ØÖ®Ç°µ÷ÓÃÕâ¸ö·½·¨
+	 * HandlerÖ´ï¿½ï¿½Ö®ï¿½ï¿½ModelAndViewï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 
 	public void postHandle(HttpServletRequest request, HttpServletResponse response,
@@ -35,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor{
  
 
 	/**
-	 * HandlerÖ´ÐÐÖ®Ç°µ÷ÓÃÕâ¸ö·½·¨
+	 * HandlerÖ´ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler) throws Exception {

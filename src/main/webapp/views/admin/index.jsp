@@ -133,8 +133,10 @@
 			layer.confirm('确认退出吗？', {
 	  		  btn: ['确定','取消'] //按钮
 	  		}, function(){
-	  			$.cookie('username', null, {path: '/'});
-	  			$.cookie('userLevel', null, {path: '/'});
+	  			$.cookie('username', "", {path: '/'});
+	  			$.cookie('userLevel', "", {path: '/'});
+	  			// $.removeCookie('JSESSIONID',{domain:'localhost',path:'/note'});
+
 	  			layer.msg('退出成功，前往登录界面！');
 	  			setTimeout(function(){
 					window.location.href="/note/";

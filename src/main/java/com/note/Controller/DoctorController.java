@@ -67,6 +67,23 @@ public class DoctorController {
         }
         return doctList;
     }
+
+    //查询所有医生的详细信息
+    @RequestMapping("getDocListInfo.do")
+    @ResponseBody
+    public List<Doctor> getDocListInfo() {
+        List<Doctor> doctListInfo = null;
+        try {
+            Doctor doctor = new Doctor();
+            doctListInfo = docService.getAllDoctorInfoDetail(doctor);
+            Integer length = doctListInfo.size();
+            if (length > 0) {
+                return doctListInfo;
+            }
+        } catch (Exception e) {
+        }
+        return doctListInfo;
+    }
     //查询所有拥有科室的医生信息
     @RequestMapping("getDocList1.do")
     @ResponseBody

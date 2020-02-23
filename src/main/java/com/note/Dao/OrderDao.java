@@ -10,6 +10,7 @@ public interface OrderDao {
 	
 	//新增订单记录
 	 void addOrder(Order order);
+
 	//��ȡ����ԤԼ��Ϣ
 	List<Order> getAllOrder();
 	//����ԤԼ״̬

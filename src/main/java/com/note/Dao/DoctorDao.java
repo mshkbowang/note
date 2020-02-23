@@ -8,6 +8,9 @@ public interface DoctorDao {
     //获取医生总数
     List<Doctor> getAllDoctorInfo(Doctor doctor);
 
+    //获取医生的详细信息
+    List<Doctor> getAllDoctorInfoDetail(Doctor doctor);
+
     //获取所有医生信息
     List<Doctor> getAllDoctorInfo1(Doctor doctor);
 

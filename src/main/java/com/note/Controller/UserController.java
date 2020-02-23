@@ -98,15 +98,17 @@ public class UserController {
 	
 	@RequestMapping("getUserData.do")
 	@ResponseBody
-	public User getUserData(Integer userId) {
+	public User getUserData(String username) {
+
 		User result = null;
 		try{
-			User user=userService.selectUserByUserId(userId);
+			User user=userService.selectUserByUserName(username);
 			result=user;
 
 		}catch(Exception e) {
+			e.printStackTrace();
 		}
-
+		System.out.println("$$$$$$$$$$$$$$$$$$$$4"+result);
 		return result;
 	}
 

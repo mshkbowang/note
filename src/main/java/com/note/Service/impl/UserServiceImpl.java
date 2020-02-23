@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectUserByUserId(userId);
 	}
 
+	public User selectUserByUserName(String username){
+		return userDao.selectUserByUserName(username);
+	}
 	public int AddUser(User user){
 	      return userDao.AddUser(user);
 	 }

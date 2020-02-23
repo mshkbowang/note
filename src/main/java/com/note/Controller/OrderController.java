@@ -8,6 +8,7 @@ import com.note.Model.User;
 import com.note.Service.DoctorService;
 import com.note.Service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,9 +27,9 @@ public class OrderController {
 
     //用户预约，产生预约单
 	@RequestMapping("addOrder.do")
-	@ResponseBody
-	public String addOrder(@RequestBody Order order) {
-	//	System.out.println(order);
+    @ResponseBody
+	public String addOrder(Order order) {
+		System.out.println(order);
 		order.setWStatus(1);
 		String result = "";
 		try{

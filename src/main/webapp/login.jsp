@@ -42,7 +42,6 @@
                 <button type="button" onclick="login()" class="btn btn-primary block full-width m-b">登 录</button>
                 <p class="text-muted text-center"><a href="./register.jsp">注册一个新账号</a>
                 </p>
-
             </form>
         </div>
     </div>
@@ -94,7 +93,7 @@
         						window.location.href="/note/views/admin/index.jsp";
         					},100);
             			}else if(result==2){
-            				$.cookie('username', result, {path: '/'});
+            				$.cookie('username', username, {path: '/'});
             				$.cookie('userLevel', 1, {path: '/'});
             				setTimeout(function(){
         						window.location.href="/note/index.jsp";

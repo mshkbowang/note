@@ -30,6 +30,7 @@
                 <div class="ibox">
                     <div class="ibox-title">
                         <h5>科室医生列表</h5>
+                        <h5>查看可在线预约的挂号信息</h5>
                     </div>
                     <div class="ibox-content">
 						<div class="row" id="doctors">
@@ -51,12 +52,15 @@
     <script src="../static/js/plugins/layer/layer.min.js"></script>
     
     <script src="../static/js/laydate/laydate.js"></script>
+
+
     <script type="text/javascript" src="../static/js/jquery.cookie.js"></script>
+
 	<script>
 		var doctorDatas;
 		 $(document).ready(function () {
 			 $.ajax({
-	        		url: '../getDocList.do',
+	        		url: '../getDocListInfo.do',
 	        		type: 'POST',
 	        		dataType: 'JSON',
 	        		success: function(res){
@@ -73,11 +77,11 @@
 	                                        "<p class='des'>医生简介: "+res[i].doctorDes+"</p>"+
 	                                        "<p>所属科室: "+res[i].deptName+"</p>"+
 	                                        "<p>出诊时间: "+res[i].workTime+"</p>"+
-	                                        "<p style='color:red'>当前工作状态: "+status+"</p>"+
+	                                        "<p >当前状态:"+status+"</p>"+
 	                                        
 	                                        "<div class='form-group'>"+
-	                                        	"<label class='col-sm-2 control-label' style='padding:0px'>挂号时间：</label>" +
-		                                        "<div class='col-sm-10'>" +
+	                                        	"<label class='col-sm-3 control-label' style='padding:0px'><p>挂号时间：</p></label>" +
+		                                        "<div class='col-sm-9'>" +
 		                                        	"<input id='time"+i+"' class='laydate-icon form-control layer-date'>" +
 		                                        "</div>"+
 	                                        "</div>" +
@@ -89,9 +93,7 @@
 	        				laydate.render({
 	        					  elem: '#time'+i //指定元素
 	        				});
-	        				
 	        			}
-	        			
 	        		},
 	        		error: function(res){
 	        			layer.msg('加载失败');
@@ -144,20 +146,12 @@
 		        		}, function(){
 		        			//提交
 							$.ajax({
-								url: '../addReg.do',
+								url: '../addOrder.do',
 				        		type: 'POST',
 				        		data: {
-				        			'hzUsername':userData.username,
-				        			'hzName':userData.name,
-				        			'hzId':userData.user_id,
-				        			'address':userData.address,
-				        			'tel':userData.tel,
-				        			'doctorName':data.doctorName,
-				        			'doctorId':data.doctorId,
-				        			'deptName':data.deptName,
-				        			'deptId':data.deptId,
-				        			'registerTime':time,
-				        			'createTime':nowTime
+				        			'userId':userData.userId,
+				        			'doctorId':userData.doctorId,
+				        			'registerTime':userData.registerTime
 				        		},
 				        		dataType: 'JSON',
 				        		success: function(result){
