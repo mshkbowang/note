@@ -153,7 +153,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.29</version>
+            <version>8.0.16</version>
         </dependency>
         <!--控制日志信息输送的目的地是控制台、文件、GUI组件、甚至是套接口服务器-->
         <dependency>
